@@ -1,0 +1,72 @@
+dipartimento: {
+
+    nome : varchar(64) - not nullable
+    università : varchar(128) - not nullable
+    mail : varchar(32) - not nullable
+    indirizzo : varchar(64) - not nullable
+    telefono : varchar(32) - not nullable
+    sito internet : varchar(64) - not nullable 
+    direttore : varchar(64) - not nullable
+    data fondazione : date - null
+}
+
+corso di laurea: {
+
+    titolo : varchar(128) - not nullable
+    durata : tinyint - not nullable
+    requisiti : text - not nullable
+    classi ministeriali : varchar - nullable
+}
+
+corso: {
+
+    materie : varchar(128) - not nullable
+    ore : tinyint - not nullable
+    numero esami : tinyint - not nullable
+    materie trattate: text - not nullable
+    descrizione: text - nullable
+    crediti: tinyint - not nullable
+}
+
+insegnante: {
+
+    nome : varchar(64) - not nullable
+    id univeristario : varchar(64) - not nullable - unique 
+    telefono : varchar(32) - not nullable
+    mail : varchar(32) - not nullable
+    mail universitaria: varchar(128) - not nullable
+    indirizzo : varchar(64) - not nullable
+    anno assunzione: year - not nullable
+}
+
+appello: {
+
+    data : date - not nullable
+    luogo: varhcar(64) - not nullable
+    sessione: varhcar(16) - not nullable
+    iscritti: int - not nullable
+}
+
+studente: {
+
+    nome : varchar(64) - not nullable
+    username: varchar(128) - not nullable ; unique
+    password: varchar(128) - not nullable
+    id univeristario : varchar(64) - not nullable - unique
+    telefono : varchar(32) - not nullable
+    mail : varchar(32) - not nullable
+    mail universitaria: varchar(128) - not nullable
+    indirizzo : varchar(64) - not nullable
+    età : tinyint - nullable
+    titolo di studio (diploma in ..)
+    crediti : tinyint - default(0)
+
+}
+
+esito: {
+
+    promosso/bocciato : tinyint - not nullable
+    voto : tinyint - not nullable
+    data : date - not nullable
+    crediti : tinyint - default(0)
+}
